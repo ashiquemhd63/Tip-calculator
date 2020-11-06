@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 class BillSplitter extends StatefulWidget {
   @override
   _BillSplitterState createState() => _BillSplitterState();
@@ -23,13 +26,15 @@ class _BillSplitterState extends State<BillSplitter> {
           padding: EdgeInsets.all(20.5),
           children: [
             Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Total per Person"),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Total per Person"),
 
-                  Text("\$123")
-                ],
+                    Text("\$123")
+                  ],
+                ),
               ),
               width: 150,
               height: 150,
@@ -37,6 +42,31 @@ class _BillSplitterState extends State<BillSplitter> {
                 color: Colors.purpleAccent.shade100,
                 borderRadius: BorderRadius.circular(12),
 
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 20.0),
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                border: Border.all(//Setting Border style
+                  color: Colors.blueGrey.shade100,
+                  style: BorderStyle.solid,
+
+                ),
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    keyboardType: TextInputType.numberWithOptions(decimal: true),
+                    style: TextStyle(color: Colors.green),
+                    decoration: InputDecoration(//Decoration inside TextField
+                      prefixText: "Bill Amount",
+                    ),
+                  ),
+
+                ],
               ),
             ),
 
