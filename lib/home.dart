@@ -1,4 +1,4 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -38,8 +38,9 @@ class _BillSplitterState extends State<BillSplitter> {
               ),
               width: 150,
               height: 150,
+
               decoration: BoxDecoration(
-                color: Colors.purpleAccent.shade100,
+                color: Colors.purpleAccent.withOpacity(0.3),
                 borderRadius: BorderRadius.circular(12),
 
               ),
@@ -63,7 +64,16 @@ class _BillSplitterState extends State<BillSplitter> {
                     style: TextStyle(color: Colors.green),
                     decoration: InputDecoration(//Decoration inside TextField
                       prefixText: "Bill Amount",
+                      prefixIcon: Icon(Icons.attach_money),
                     ),
+                    onChanged: (String value){
+                      try{
+                        _billAmount=double.parse(value);
+                      }catch(exception){
+                        _billAmount=0.0;
+
+                      }
+                    },
                   ),
 
                 ],
