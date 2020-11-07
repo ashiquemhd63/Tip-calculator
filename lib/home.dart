@@ -75,6 +75,100 @@ class _BillSplitterState extends State<BillSplitter> {
                       }
                     },
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Split",style: TextStyle(
+                        color: Colors.grey.shade700,
+                      ),
+                      ),
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                if(_personCounter>1){
+                                  _personCounter--;
+                                }
+                                else{
+
+                                }
+                              });
+                            },
+                            child: Container(
+                              width: 40.0,
+                              height: 40.0,
+                              margin: EdgeInsets.all(10.0),
+                              decoration:  BoxDecoration(
+                                borderRadius: BorderRadius.circular(7.0),
+                                color: Colors.purple.shade100,
+
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "-",style: TextStyle(
+                                  color: Colors.purple,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17.0,
+                                ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Text("$_personCounter",style: TextStyle(
+                            color: Colors.purple,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17.0,
+                            ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                _personCounter++;
+                              });
+                            },
+                            child: Container(
+                              height: 40,
+                              width: 40,
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade100,
+                                borderRadius: BorderRadius.circular(7.0)
+                              ),
+                              child: Center(
+                                child: Text("+",style: TextStyle(
+                                  color: Colors.purple,
+                                  fontSize: 17.0,
+                                  fontWeight: FontWeight.bold
+                                ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          //Tip
+
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Tip",style: TextStyle(
+                      color: Colors.grey.shade700,
+                      ),
+                      ),
+                      Text("\$34",style:TextStyle(
+                        color: Colors.purple ,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17.0,
+
+                      ),
+                      ),
+                    ],
+                  )
 
                 ],
               ),
