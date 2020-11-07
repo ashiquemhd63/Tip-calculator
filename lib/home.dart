@@ -30,9 +30,21 @@ class _BillSplitterState extends State<BillSplitter> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Total per Person"),
+                    Text("Total per Person",style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 15.0,
+                      color: Colors.purple,
+                    ),
+                    ),
 
-                    Text("\$123")
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("\$123",style: TextStyle(
+                        color: Colors.purple,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 34.9
+                      ),),
+                    )
                   ],
                 ),
               ),
@@ -168,8 +180,29 @@ class _BillSplitterState extends State<BillSplitter> {
                       ),
                       ),
                     ],
-                  )
-
+                  ),
+                  //code for slider comes here
+                  Column(
+                    children: [
+                      Text("$_tipPercentage%",style: TextStyle(
+                        color: Colors.purple,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      ),
+                      Slider(
+                          min: 0,
+                          max: 100,
+                          value: _tipPercentage.toDouble(),
+                          activeColor: Colors.purple,//When slider is active
+                          inactiveColor: Colors.grey,
+                          onChanged: (double value){
+                            setState(() {
+                              _tipPercentage=value.round();
+                        });
+                      }),
+                    ],
+                  ),
                 ],
               ),
             ),
